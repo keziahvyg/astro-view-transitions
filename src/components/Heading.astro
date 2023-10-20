@@ -1,0 +1,38 @@
+---
+const anim = {
+  old: {
+    name: 'rollout',
+    duration: '0.2s',
+    easing: 'linear',
+    fillMode: 'forwards',
+  },
+  new: {
+    name: 'rollin',
+    duration: '0.3s',
+    easing: 'linear',
+    fillMode: 'forwards',
+  }
+};
+
+const rollover = {
+  forwards: anim,
+  backwards: anim,
+};
+---
+<div class="container">
+    <h1 class="heading" transition:name="heading" transition:animate={rollover}>
+        <slot />
+    </h1>
+</div>
+<style>
+    .container {
+        overflow: hidden;
+    }
+	.heading {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin: 0 0 1rem 0;
+	}
+</style>
